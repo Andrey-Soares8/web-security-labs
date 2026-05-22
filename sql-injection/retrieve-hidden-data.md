@@ -2,27 +2,41 @@
 
 ## Objetivo
 
-Explorar uma vulnerabilidade de SQL Injection para acessar dados ocultos da aplicação através da manipulação de parâmetros na URL.
+Explorar uma vulnerabilidade de SQL Injection para acessar dados ocultos da aplicação manipulando parâmetros da URL.
 
 ---
 
-## Vulnerabilidade
+## Análise Inicial
 
-A aplicação concatenava diretamente a entrada do usuário em uma query SQL sem validação adequada.
+Ao testar o parâmetro `category`, foi possível perceber que o valor enviado pelo usuário era inserido diretamente na query SQL.
 
-Exemplo de query vulnerável:
+Exemplo:
 
-```sql
-SELECT * FROM products WHERE category = 'Accessories'
+```txt
+/filter?category=a
 ```
 
-O valor enviado pelo usuário era inserido diretamente entre aspas simples na consulta SQL.
+Isso indicava que a aplicação provavelmente montava a query de forma dinâmica:
+
+```sql
+SELECT * FROM products WHERE category = 'a'
+```
+
+Como o valor ficava entre aspas simples, tornou-se possível tentar manipular a lógica da consulta usando SQL Injection.
+
+---
+
+## Screenshot
+
+> Adicionar print mostrando o parâmetro `category=a`
+
+```md
+![Category Parameter](../../screenshots/sql-injection/category-test.png)
+```
 
 ---
 
 ## Exploração
-
-Ao manipular o parâmetro `category`, foi possível alterar completamente a lógica da query.
 
 Payload utilizado:
 
@@ -40,9 +54,9 @@ URL explorada:
 
 ## Como o Payload Funciona
 
-O payload funciona em três etapas:
+O payload funciona em 3 partes:
 
-### 1. Fechamento da string original
+### 1. Fecha a string original
 
 O primeiro `'` fecha a string da query SQL.
 
@@ -54,9 +68,9 @@ WHERE category = ''
 
 ---
 
-### 2. Inserção de condição verdadeira
+### 2. Adiciona uma condição verdadeira
 
-A expressão:
+A parte:
 
 ```sql
 OR 1=1
@@ -64,21 +78,21 @@ OR 1=1
 
 sempre retorna verdadeiro.
 
-Isso faz com que o banco de dados aceite todos os registros da tabela.
+Isso faz o banco retornar todos os registros da tabela.
 
 ---
 
-### 3. Comentário do restante da query
+### 3. Comenta o restante da query
 
-O trecho:
+O:
 
 ```sql
 --
 ```
 
-comenta o restante da instrução SQL, evitando erros de sintaxe.
+faz o SQL ignorar o restante da instrução, evitando erros de sintaxe.
 
-Query final executada:
+Query final:
 
 ```sql
 SELECT * FROM products 
@@ -90,6 +104,12 @@ WHERE category = '' OR 1=1--'
 ## Resultado
 
 Foi possível ignorar o filtro original da aplicação e visualizar produtos ocultos armazenados no banco de dados.
+
+---
+
+## Screenshot
+
+<img width="1408" height="705" alt="image" src="https://github.com/user-attachments/assets/20326e90-b744-4e1a-87ce-2a97e646286c" />
 
 ---
 
@@ -117,6 +137,6 @@ Uma vulnerabilidade SQL Injection pode permitir:
 
 ## Aprendizados
 
-Este laboratório demonstrou como a concatenação insegura de entradas do usuário em queries SQL pode comprometer completamente a segurança de uma aplicação.
+Esse laboratório mostrou na prática como concatenar entrada do usuário diretamente em queries SQL pode comprometer completamente uma aplicação.
 
-Também reforçou a importância de entender a lógica da query SQL em vez de apenas memorizar payloads.
+Também ajudou a entender melhor a lógica por trás do payload, em vez de apenas copiar comandos prontos.
