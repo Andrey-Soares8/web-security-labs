@@ -27,14 +27,8 @@ Como o valor ficava entre aspas simples, tornou-se possível tentar manipular a 
 ---
 
 ## Screenshot
+<img width="1417" height="675" alt="image" src="https://github.com/user-attachments/assets/b4137478-7815-4d79-89eb-bee3233306b6" />
 
-> Adicionar print mostrando o parâmetro `category=a`
-
-```md
-![Category Parameter](../../screenshots/sql-injection/category-test.png)
-```
-
----
 
 ## Exploração
 
@@ -109,7 +103,11 @@ Foi possível ignorar o filtro original da aplicação e visualizar produtos ocu
 
 ## Screenshot
 
-<img width="1408" height="705" alt="image" src="https://github.com/user-attachments/assets/20326e90-b744-4e1a-87ce-2a97e646286c" />
+> Adicionar print do lab resolvido / payload funcionando
+
+```md
+![Lab Solved](../../screenshots/sql-injection/retrieve-hidden-data-solved.png)
+```
 
 ---
 
