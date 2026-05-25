@@ -101,7 +101,6 @@ Depois de identificar a estrutura da query, os valores de teste foram substituí
 ## Screenshot
 
 ![Oracle Version](./screenshots/oracle2.png)
-
 ---
 
 ## Como o segundo payload funciona
