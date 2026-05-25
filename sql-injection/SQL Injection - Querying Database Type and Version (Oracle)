@@ -1,3 +1,4 @@
+```markdown
 # SQL Injection - Querying Database Type and Version (Oracle)
 
 ## Objetivo
@@ -16,92 +17,132 @@ Foi realizado o seguinte teste:
 
 ```sql
 ' UNION SELECT 'abc','def' FROM dual--
-Screenshot - Teste de Colunas
-<img src="./screenshots/1.png" alt="Column Test">
+```
 
-Como o Payload Funciona
-1. Fecha a string original
-SQL'
+### Screenshot - Teste de Colunas
+
+![Column Test](./screenshots/1.png)
+
+---
+
+## Como o Payload Funciona
+
+### 1. Fecha a string original
+```sql
+'
+```
 Fecha a string da query original da aplicação.
-2. UNION
-SQLUNION
+
+### 2. UNION
+```sql
+UNION
+```
 Junta o resultado da consulta injetada com o resultado da consulta original.
-3. Teste de quantidade de colunas
-SQLSELECT 'abc','def'
+
+### 3. Teste de quantidade de colunas
+```sql
+SELECT 'abc','def'
+```
 Valores utilizados apenas para teste, com o objetivo de descobrir:
+- Quantidade de colunas da query original
+- Se as colunas aceitam valores do tipo texto
+- Se o `UNION` estava funcionando corretamente
 
-Quantidade de colunas da query original
-Se as colunas aceitam valores do tipo texto
-Se o UNION estava funcionando corretamente
+### 4. FROM dual (Oracle)
+```sql
+FROM dual
+```
+No Oracle, toda consulta `SELECT` precisa referenciar uma tabela. A `dual` é uma tabela especial usada para consultas simples sem depender de tabelas reais.
 
-4. FROM dual (Oracle)
-SQLFROM dual
-No Oracle, toda consulta SELECT precisa referenciar uma tabela. A dual é uma tabela especial usada para consultas simples sem depender de tabelas reais.
+---
 
-Resultado do Teste
-Como os valores abc e def foram exibidos na aplicação, foi possível concluir que:
+## Resultado do Teste
 
-A query original possui 2 colunas
-Ambas as colunas aceitam valores de texto
-O UNION está funcionando corretamente
+Como os valores `abc` e `def` foram exibidos na aplicação, foi possível concluir que:
 
+- A query original possui **2 colunas**
+- Ambas as colunas aceitam valores de texto
+- O `UNION` está funcionando corretamente
 
-Extraindo Informações Reais
+---
+
+## Extraindo Informações Reais
+
 Com a estrutura identificada, os valores de teste foram substituídos por informações reais do banco:
-SQL' UNION SELECT BANNER,NULL FROM v$version--
-Screenshot - Versão do Oracle
-<img src="./screenshots/oracle2.png" alt="Oracle Version">
 
-Como o Segundo Payload Funciona
-SQLSELECT BANNER, NULL 
+```sql
+' UNION SELECT BANNER,NULL FROM v$version--
+```
+
+### Screenshot - Versão do Oracle
+
+![Oracle Version](./screenshots/oracle2.png)
+
+---
+
+## Como o Segundo Payload Funciona
+
+```sql
+SELECT BANNER, NULL 
 FROM v$version
+```
 
-BANNER: Coluna que contém informações detalhadas sobre a versão do Oracle.
-NULL: Utilizado para manter o número correto de colunas (2) no UNION.
-v$version: View interna do Oracle que armazena:
-Versão do banco
-Release
-Arquitetura
-Componentes instalados
+- **`BANNER`**: Coluna que contém informações detalhadas sobre a versão do Oracle.
+- **`NULL`**: Utilizado para manter o número correto de colunas (2) no `UNION`.
+- **`v$version`**: View interna do Oracle que armazena:
+  - Versão do banco
+  - Release
+  - Arquitetura
+  - Componentes instalados
 
+---
 
+## Resultado
 
-Resultado
 Foi possível identificar:
 
-Oracle Database 11g
-Versão específica do banco de dados
-Informações adicionais sobre o ambiente
+- **Oracle Database 11g**
+- Versão específica do banco de dados
+- Informações adicionais sobre o ambiente
 
+---
 
-Impacto
+## Impacto
+
 Uma vulnerabilidade de SQL Injection permite:
 
-Enumeração completa do banco de dados
-Descoberta de tecnologias e versões utilizadas
-Coleta de informações sensíveis
-Preparação para ataques mais avançados
+- Enumeração completa do banco de dados
+- Descoberta de tecnologias e versões utilizadas
+- Coleta de informações sensíveis
+- Preparação para ataques mais avançados
 
+---
 
-Mitigação
+## Mitigação
 
-Utilizar Prepared Statements e Parameterized Queries
-Validação e sanitização rigorosa de entradas do usuário
-Uso de ORM com proteção nativa contra SQL Injection
-Aplicar o princípio do menor privilégio no banco de dados
+- Utilizar **Prepared Statements** e **Parameterized Queries**
+- Validação e sanitização rigorosa de entradas do usuário
+- Uso de ORM com proteção nativa contra SQL Injection
+- Aplicar o princípio do **menor privilégio** no banco de dados
 
+---
 
-Aprendizados
+## Aprendizados
+
 Esse laboratório demonstrou que SQL Injection vai muito além de inserir payloads aleatórios.
-Antes de extrair dados reais, foi necessário:
 
-Entender a estrutura da query original
-Descobrir a quantidade de colunas
-Identificar quais colunas aceitam texto
-Adaptar o payload conforme o tipo de banco (Oracle)
+**Antes de extrair dados reais, foi necessário:**
 
-Isso reforçou a importância de entender a lógica por trás da vulnerabilidade, em vez de apenas decorar payloads.
+1. Entender a estrutura da query original
+2. Descobrir a quantidade de colunas
+3. Identificar quais colunas aceitam texto
+4. Adaptar o payload conforme o tipo de banco (Oracle)
 
-Laboratório: SQL Injection Oracle
-Autor: Andrey Soares
-Data: Maio 2026
+Isso reforçou a importância de **entender a lógica** por trás da vulnerabilidade, em vez de apenas decorar payloads.
+
+---
+
+**Laboratório:** SQL Injection Oracle  
+**Autor:** Andrey Soares  
+**Data:** Maio 2026
+```
