@@ -2,180 +2,106 @@
 
 ## Objetivo
 
-Explorar uma vulnerabilidade SQL Injection utilizando `UNION` para identificar o tipo e a versão do banco de dados Oracle.
+Explorar uma vulnerabilidade **SQL Injection** utilizando a técnica `UNION` para identificar o tipo e a versão do banco de dados Oracle.
 
 ---
 
 ## Análise Inicial
 
-Após confirmar que a aplicação era vulnerável a SQL Injection, o próximo objetivo foi entender a estrutura da query original.
+Após confirmar a vulnerabilidade de SQL Injection, o próximo passo foi entender a estrutura da query original da aplicação.
 
-Para utilizar `UNION`, a consulta injetada precisa possuir a mesma quantidade de colunas da query original.
+Para utilizar o `UNION`, a consulta injetada deve ter **a mesma quantidade de colunas** da query original.
 
 Foi realizado o seguinte teste:
 
 ```sql
 ' UNION SELECT 'abc','def' FROM dual--
-```
+Screenshot - Teste de Colunas
+<img src="./screenshots/1.png" alt="Column Test">
 
----
+Como o Payload Funciona
+1. Fecha a string original
+SQL'
+Fecha a string da query original da aplicação.
+2. UNION
+SQLUNION
+Junta o resultado da consulta injetada com o resultado da consulta original.
+3. Teste de quantidade de colunas
+SQLSELECT 'abc','def'
+Valores utilizados apenas para teste, com o objetivo de descobrir:
 
-## Screenshot
+Quantidade de colunas da query original
+Se as colunas aceitam valores do tipo texto
+Se o UNION estava funcionando corretamente
 
-![Column Test](screenshots/1.png)
+4. FROM dual (Oracle)
+SQLFROM dual
+No Oracle, toda consulta SELECT precisa referenciar uma tabela. A dual é uma tabela especial usada para consultas simples sem depender de tabelas reais.
 
----
+Resultado do Teste
+Como os valores abc e def foram exibidos na aplicação, foi possível concluir que:
 
-## Como o Payload Funciona
+A query original possui 2 colunas
+Ambas as colunas aceitam valores de texto
+O UNION está funcionando corretamente
 
-### Fecha a string original
 
-O:
+Extraindo Informações Reais
+Com a estrutura identificada, os valores de teste foram substituídos por informações reais do banco:
+SQL' UNION SELECT BANNER,NULL FROM v$version--
+Screenshot - Versão do Oracle
+<img src="./screenshots/oracle2.png" alt="Oracle Version">
 
-```sql
-'
-```
-
-fecha a string existente da query.
-
----
-
-### Usa UNION para combinar consultas
-
-```sql
-UNION
-```
-
-junta o resultado da consulta injetada com a consulta original da aplicação.
-
----
-
-### Testa quantidade de colunas
-
-```sql
-SELECT 'abc','def'
-```
-
-Os valores `abc` e `def` não possuem significado especial.
-
-Eles foram utilizados apenas como valores de teste para descobrir:
-
-- Quantas colunas existem
-- Se as colunas aceitam texto
-- Se o UNION funciona corretamente
-
----
-
-### Uso do FROM dual
-
-```sql
-FROM dual
-```
-
-No Oracle, consultas simples precisam referenciar uma tabela.
-
-`dual` é uma tabela especial utilizada para retornar valores sem depender de tabelas reais.
-
----
-
-## Resultado do teste
-
-Como `abc` e `def` apareceram na aplicação, foi possível concluir:
-
-- A query possui 2 colunas
-- Ambas aceitam valores de texto
-- O `UNION` estava funcionando
-
----
-
-## Extraindo informações reais
-
-Depois de identificar a estrutura da query, os valores de teste foram substituídos por dados reais do banco:
-
-```sql
-' UNION SELECT BANNER,NULL FROM v$version--
-```
-
----
-
-## Screenshot
-
-![Oracle Version](screenshots/oracle2.png)
-
----
-
-## Como o segundo payload funciona
-
-```sql
-SELECT BANNER,NULL
+Como o Segundo Payload Funciona
+SQLSELECT BANNER, NULL 
 FROM v$version
-```
 
-### BANNER
+BANNER: Coluna que contém informações detalhadas sobre a versão do Oracle.
+NULL: Utilizado para manter o número correto de colunas (2) no UNION.
+v$version: View interna do Oracle que armazena:
+Versão do banco
+Release
+Arquitetura
+Componentes instalados
 
-`BANNER` é uma coluna que contém informações sobre a versão do banco Oracle.
 
----
 
-### NULL
-
-Foi utilizado `NULL` apenas para manter a quantidade correta de colunas.
-
-A consulta precisava continuar retornando duas colunas.
-
----
-
-### v$version
-
-`v$version` é uma tabela interna do Oracle que armazena:
-
-- Versão do banco
-- Release
-- Arquitetura
-- Componentes instalados
-
----
-
-## Resultado
-
+Resultado
 Foi possível identificar:
 
-- Oracle Database 11g
-- Versão específica do banco
-- Informações adicionais do ambiente
+Oracle Database 11g
+Versão específica do banco de dados
+Informações adicionais sobre o ambiente
 
----
 
-## Impacto
+Impacto
+Uma vulnerabilidade de SQL Injection permite:
 
-Uma vulnerabilidade desse tipo pode permitir:
+Enumeração completa do banco de dados
+Descoberta de tecnologias e versões utilizadas
+Coleta de informações sensíveis
+Preparação para ataques mais avançados
 
-- Enumeração do banco de dados
-- Descoberta de tecnologias utilizadas
-- Coleta de informações sensíveis
-- Facilitar ataques posteriores
 
----
+Mitigação
 
-## Mitigação
+Utilizar Prepared Statements e Parameterized Queries
+Validação e sanitização rigorosa de entradas do usuário
+Uso de ORM com proteção nativa contra SQL Injection
+Aplicar o princípio do menor privilégio no banco de dados
 
-- Prepared Statements
-- Parameterized Queries
-- Validação de entrada
-- ORM seguro
-- Menor privilégio no banco de dados
 
----
-
-## Aprendizados
-
-Esse laboratório mostrou que SQL Injection não é apenas inserir payloads aleatórios.
-
+Aprendizados
+Esse laboratório demonstrou que SQL Injection vai muito além de inserir payloads aleatórios.
 Antes de extrair dados reais, foi necessário:
 
-- Entender a estrutura da query original
-- Descobrir a quantidade de colunas
-- Identificar quais colunas aceitavam texto
-- Trocar valores de teste por informações reais do banco
+Entender a estrutura da query original
+Descobrir a quantidade de colunas
+Identificar quais colunas aceitam texto
+Adaptar o payload conforme o tipo de banco (Oracle)
 
-Isso reforçou a importância de entender a lógica por trás da vulnerabilidade em vez de apenas decorar payloads.
+Isso reforçou a importância de entender a lógica por trás da vulnerabilidade, em vez de apenas decorar payloads.
+
+Laboratório: SQL Injection Oracle
+Autor: Andrey Soares
+Data: Maio 2026
