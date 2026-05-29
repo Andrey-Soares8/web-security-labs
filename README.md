@@ -1,34 +1,29 @@
 # Web Security Labs
 
-Hands-on labs and technical writeups focused on web security vulnerabilities and exploitation techniques.
+Portfolio of practical web application security labs completed through PortSwigger Web Security Academy.
 
-## Categories
+## Progress
 
-### SQL Injection
+| Category | Labs |
+|-----------|------|
+| SQL Injection | 8 |
+| XSS | 1 |
+| Authentication | 0 |
+| Access Control | 0 |
+| SSRF | 0 |
 
-* Retrieve Hidden Data
+## Skills Demonstrated
 
-### Topics Covered
+- SQL Injection
+- Blind SQL Injection
+- Authentication Bypass
+- Database Enumeration
+- Web Exploitation Methodology
 
-* SQL Injection
-* Authentication Vulnerabilities
-* XSS
-* CSRF
-* SSRF
-* Web Security Fundamentals
+## Technologies
 
-## Platform
-
-Labs completed from:
-
-* PortSwigger Web Security Academy
-
-## Goal
-
-Build practical cybersecurity skills through:
-
-* Hands-on labs
-* Vulnerability analysis
-* Exploitation techniques
-* Technical documentation
-* Secure coding awareness
+- Burp Suite
+- HTTP Requests
+- PostgreSQL
+- MySQL
+- Oracle
