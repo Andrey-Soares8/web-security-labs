@@ -1,3 +1,7 @@
+![PortSwigger](https://img.shields.io/badge/Platform-PortSwigger-red)
+![SQL Injection](https://img.shields.io/badge/SQLi-9%20Labs-success)
+![XSS](https://img.shields.io/badge/XSS-1%20Lab-blue)
+
 # Web Security Labs
 
 Portfolio of practical web application security labs completed through PortSwigger Web Security Academy.
