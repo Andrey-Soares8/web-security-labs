@@ -6,7 +6,7 @@ Portfolio of practical web application security labs completed through PortSwigg
 
 | Category | Labs |
 |-----------|------|
-| SQL Injection | 8 |
+| SQL Injection | 9 |
 | XSS | 1 |
 | Authentication | 0 |
 | Access Control | 0 |
