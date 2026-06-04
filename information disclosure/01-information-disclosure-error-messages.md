@@ -61,11 +61,6 @@ Durante o estudo desse módulo, mapeei outros vetores comuns usados na vida real
 
 **Google Dorks** — busca por informações sensíveis indexadas pelo Google sem querer. Exemplos: `filetype:txt inurl:robots.txt`, `intext:senha site:trello.com`. Base de dorks disponível em exploit-db.com/google-hacking-database.
 
-**WHOIS** — consulta de registro de domínio expõe nome do responsável, email, endereço e provedor de hospedagem. Ferramentas: who.is, registro.br.
-
-**GitHub/GitLab** — repositórios públicos com chaves de API, credenciais hardcoded ou histórico de commits com dados sensíveis removidos depois mas ainda acessíveis.
-
-**Respostas de APIs** — endpoints que retornam mais campos do que o front-end exibe. Inspecionar o JSON bruto da resposta frequentemente expõe IDs internos, emails e flags de permissão.
 
 **Wayback Machine / Waymore** — versões antigas de páginas e arquivos que foram removidos do site mas permanecem arquivados. Útil para encontrar endpoints descontinuados e parâmetros antigos.
 
