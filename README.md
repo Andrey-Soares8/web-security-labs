@@ -14,6 +14,7 @@ O objetivo deste projeto é documentar meu aprendizado hands-on em vulnerabilida
 
 | Categoria              | Labs Concluídos | Status     |
 |------------------------|------------------|----------|
+| **Information Disclosure** | 4 | ✅ Concluído |
 | **SQL Injection**      | 9                | ✅ Concluído |
 | **XSS**                | 1                | 🔄 Em andamento |
 | **Broken Authentication** | 0             | ⏳ Planejado |
