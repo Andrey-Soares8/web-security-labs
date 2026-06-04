@@ -23,7 +23,7 @@ O objetivo deste projeto é documentar meu aprendizado hands-on em vulnerabilida
 | **XXE**                | 0                | ⏳ Planejado |
 | **File Upload**        | 0                | ⏳ Planejado |
 
-**Total:** 10 labs concluídos
+**Total:** 14 labs concluídos
 
 ---
 
@@ -76,7 +76,7 @@ Todos os labs foram resolvidos em ambiente controlado da PortSwigger Academy.
 
 ## 📫 Contato
 
-- **LinkedIn**: ([https://linkedin.com/in/seu-perfil](https://www.linkedin.com/in/andreysoares8/))
+- **LinkedIn**: [andreysoares8](https://www.linkedin.com/in/andreysoares8/)
 - **GitHub**: [@Andrey-Soares8](https://github.com/Andrey-Soares8)
 
 ---
