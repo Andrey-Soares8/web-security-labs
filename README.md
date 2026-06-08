@@ -16,14 +16,14 @@ O objetivo deste projeto é documentar meu aprendizado hands-on em vulnerabilida
 |------------------------|------------------|----------|
 | **Information Disclosure** | 4 | ✅ Concluído |
 | **SQL Injection**      | 9                | ✅ Concluído |
-| **XSS**                | 1                | 🔄 Em andamento |
-| **Broken Authentication** | 0             | ⏳ Planejado |
+| **XSS**                | 3                | ✅ Concluído |
+| **Broken Authentication** | 0             | 🔄 Em andamento |
 | **Access Control**     | 0                | ⏳ Planejado |
 | **SSRF**               | 0                | ⏳ Planejado |
 | **XXE**                | 0                | ⏳ Planejado |
 | **File Upload**        | 0                | ⏳ Planejado |
 
-**Total:** 14 labs concluídos
+**Total:** 16 labs concluídos
 
 ---
 
@@ -76,8 +76,9 @@ Todos os labs foram resolvidos em ambiente controlado da PortSwigger Academy.
 
 ## 📫 Contato
 
-- **LinkedIn**: [andreysoares8](https://www.linkedin.com/in/andreysoares8/)
-- **GitHub**: [@Andrey-Soares8](https://github.com/Andrey-Soares8)
+**LinkedIn**: [andreysoares8](https://www.linkedin.com/in/andreysoares8/)
+
+ **GitHub**: [@Andrey-Soares8](https://github.com/Andrey-Soares8)
 
 ---
 
