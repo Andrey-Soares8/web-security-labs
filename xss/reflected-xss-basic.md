@@ -1,4 +1,3 @@
-
 # Reflected XSS — HTML Context sem Encoding
 
 ## Contexto
@@ -31,6 +30,7 @@ Payload inserido na barra de busca:
 
 ```html
 <script>alert(1)</script>
+<script>alert('Teste aqui')</script> (se quiser string)
 ```
 
 A resposta virou:
@@ -41,13 +41,13 @@ A resposta virou:
 
 O browser interpretou como HTML válido, executou o script e disparou o `alert(1)`.
 
-Nenhuma ferramenta necessária — payload direto no campo de busca.
+![Alert disparado no browser](images/xss-01-reflected-alert.png)
 
 ---
 
 ## Impacto
 
-Em ambiente real, `alert(1)` seria substituído por código que rouba cookies de sessão, redireciona o usuário para páginas falsas ou realiza ações em nome da vítima. O vetor funciona distribuindo um link com o payload na URL — qualquer pessoa que clicar executa o script no próprio browser.
+Em ambiente real, `alert(1) e alert('Erro aqui)'` seria substituído por código que rouba cookies de sessão, redireciona o usuário para páginas falsas ou realiza ações em nome da vítima. O vetor funciona distribuindo um link com o payload na URL — qualquer pessoa que clicar executa o script no próprio browser.
 
 ---
 
