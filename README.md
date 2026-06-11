@@ -1,7 +1,7 @@
 # Web Security Labs
 
 ![PortSwigger Academy](https://img.shields.io/badge/PortSwigger-Web%20Security%20Academy-%23FF0000)
-![Burp Suite](https://img.shields.io/badge/Burp%20Suite-Professional-%23000000)
+![Burp Suite](https://img.shields.io/badge/Burp%20Suite-%23000000)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-blue)
 
 Repositório com **labs práticos** de segurança web realizados na **PortSwigger Web Security Academy** (Burp Suite Academy). 
@@ -17,13 +17,13 @@ O objetivo deste projeto é documentar meu aprendizado hands-on em vulnerabilida
 | **Information Disclosure** | 4 | ✅ Concluído |
 | **SQL Injection**      | 9                | ✅ Concluído |
 | **XSS**                | 3                | ✅ Concluído |
-| **Broken Authentication** | 0             | 🔄 Em andamento |
+| **Broken Authentication** | 2            | 🔄 Em andamento |
 | **Access Control**     | 0                | ⏳ Planejado |
 | **SSRF**               | 0                | ⏳ Planejado |
 | **XXE**                | 0                | ⏳ Planejado |
 | **File Upload**        | 0                | ⏳ Planejado |
 
-**Total:** 16 labs concluídos
+**Total:** 18 labs concluídos
 
 ---
 
