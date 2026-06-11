@@ -84,5 +84,3 @@ Todos os labs foram resolvidos em ambiente controlado da PortSwigger Academy.
 
 **Feito com ❤️ e muita cafeína para estudar Application Security.**
 
-Quer que eu melhore alguma seção específica? Posso deixar mais técnico, mais curto, ou adicionar seções como "Metodologia" ou "Aprendizados".
-É só falar!
