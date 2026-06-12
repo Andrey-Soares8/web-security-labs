@@ -32,13 +32,13 @@ Todos os labs documentados foram resolvidos em ambiente educacional da PortSwigg
 | SQL Injection | 9 | ✅ Documentado |
 | Information Disclosure | 4 | ✅ Documentado |
 | XSS | 3 | ✅ Documentado |
-| Broken Authentication | 2 | ✅ Documentado |
+| Broken Authentication | 3 | ✅ Documentado |
 | Access Control | 3 | ✅ Documentado |
-| SSRF | 0 | ⏳ Planejado |
+| SSRF | 2 | ✅ Documentado |
 | XXE | 0 | ⏳ Planejado |
 | File Upload | 0 | ⏳ Planejado |
 
-**Total: 21 write-ups publicados.**
+**Total: 24 write-ups publicados.**
 
 ---
 
