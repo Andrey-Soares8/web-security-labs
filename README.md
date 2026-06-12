@@ -1,74 +1,91 @@
 # Web Security Labs
 
 ![PortSwigger](https://img.shields.io/badge/PortSwigger-Web%20Security%20Academy-orange)
-![Burp Suite](https://img.shields.io/badge/Burp%20Suite-Testing%20Tool-red)
-![Status](https://img.shields.io/badge/Status-In%20Progress-blue)
+![Burp Suite](https://img.shields.io/badge/Burp%20Suite-Community%20Edition-blue)
+![Status](https://img.shields.io/badge/Status-Em%20andamento-yellow)
 
-Repositório com write-ups técnicos de laboratórios da **PortSwigger Web Security Academy**, focado em segurança de aplicações web, análise de vulnerabilidades e metodologia prática de exploração em ambiente controlado.
+Repositório com write-ups técnicos de laboratórios da PortSwigger Web Security Academy, focado em segurança de aplicações web, análise de vulnerabilidades e metodologia prática de exploração em ambiente controlado.
 
-O objetivo deste projeto é documentar meu aprendizado hands-on em **Application Security**, registrando o raciocínio técnico, etapas de análise, payloads utilizados, impacto da vulnerabilidade e possíveis mitigações.
+O objetivo deste projeto é documentar meu aprendizado hands-on em Application Security, registrando raciocínio técnico, etapas de análise, payloads utilizados, evidências, impacto da vulnerabilidade e possíveis mitigações.
 
 ---
 
-## 🎯 Objetivo
+## Objetivo
 
 Construir experiência prática em segurança web através de:
 
-* Análise de vulnerabilidades reais em laboratórios controlados
-* Uso de ferramentas como Burp Suite, navegador e scripts auxiliares
-* Documentação técnica clara e objetiva
-* Entendimento do impacto de cada falha
-* Criação de um portfólio público de aprendizado em cybersecurity
+- Análise de vulnerabilidades reais em laboratórios controlados
+- Uso de ferramentas como Burp Suite, navegador e DevTools
+- Leitura e manipulação de requisições HTTP/HTTPS
+- Documentação técnica clara e objetiva
+- Entendimento do impacto real de cada falha
+- Criação de um portfólio público de aprendizado em cybersecurity
 
 Todos os labs documentados foram resolvidos em ambiente educacional da PortSwigger Web Security Academy.
 
 ---
 
-## 📊 Progresso Atual
+## Progresso Atual
 
-| Categoria              | Write-ups Publicados | Status          |
-| ---------------------- | -------------------: | --------------- |
-| Information Disclosure |                    4 | ✅ Documentado   |
-| SQL Injection          |                    9 | ✅ Documentado   |
-| XSS                    |                    3 | ✅ Documentado   |
-| Broken Authentication  |                    2 | 🔄 Em andamento |
-| Access Control         |                    0 | ⏳ Planejado     |
-| SSRF                   |                    0 | ⏳ Planejado     |
-| XXE                    |                    0 | ⏳ Planejado     |
-| File Upload            |                    0 | ⏳ Planejado     |
+| Categoria | Write-ups publicados | Status |
+|---|---:|---|
+| SQL Injection | 9 | ✅ Documentado |
+| Information Disclosure | 4 | ✅ Documentado |
+| XSS | 3 | ✅ Documentado |
+| Broken Authentication | 2 | ✅ Documentado |
+| Access Control | 3 | ✅ Documentado |
+| SSRF | 0 | ⏳ Planejado |
+| XXE | 0 | ⏳ Planejado |
+| File Upload | 0 | ⏳ Planejado |
 
-**Total:** 18 write-ups publicados.
-
----
-
-## 🧠 Skills Demonstradas
-
-* Análise de requisições HTTP/HTTPS
-* Exploração de SQL Injection
-* Blind SQL Injection com respostas condicionais e time-based
-* Cross-Site Scripting refletido, armazenado e DOM-based
-* Authentication bypass
-* Information disclosure
-* Enumeração e análise de endpoints
-* Uso do Burp Suite Repeater, Intruder e Proxy
-* Documentação técnica de vulnerabilidades
-* Organização de evidências e payloads
+**Total: 21 write-ups publicados.**
 
 ---
 
-## 🛠️ Tecnologias e Ferramentas
+## Labs Recentes Documentados
 
-* Burp Suite
-* Navegador com DevTools
-* HTTP/HTTPS
-* SQL
-* JavaScript
-* Python para scripts auxiliares, quando necessário
-* PortSwigger Web Security Academy
+### Access Control
+
+- User ID controlled by request parameter
+- Insecure direct object references
+- User role controlled by request parameter
+
+O módulo de Access Control está sendo documentado com foco em autorização quebrada, IDOR, controle de função por parâmetros manipuláveis e falhas de validação no servidor.
 
 ---
 
-## 📁 Estrutura do Repositório
+## Skills Demonstradas
+
+- Análise de requisições HTTP/HTTPS
+- Uso do Burp Suite Proxy, Repeater e Intruder
+- Exploração de SQL Injection
+- Blind SQL Injection com respostas condicionais e time-based
+- Cross-Site Scripting refletido, armazenado e DOM-based
+- Análise de sources e sinks em JavaScript
+- Authentication bypass
+- Information disclosure
+- Enumeração e análise de endpoints
+- Insecure Direct Object References (IDOR)
+- Bypass de autorização por parâmetros e cookies manipuláveis
+- Análise de controle de acesso server-side vs client-side
+- Organização de evidências técnicas com imagens
+- Documentação de impacto e mitigação
+
+---
+
+## Tecnologias e Ferramentas
+
+- Burp Suite
+- Navegador com DevTools
+- HTTP/HTTPS
+- SQL
+- JavaScript
+- Python para scripts auxiliares, quando necessário
+- PortSwigger Web Security Academy
+
+---
+
+## Estrutura do Repositório
 
 ```txt
 web-security-labs/
@@ -76,50 +93,51 @@ web-security-labs/
 │   └── Write-ups de SQL Injection
 ├── xss/
 │   └── Write-ups de Cross-Site Scripting
-├── information-disclosure/
+├── information disclosure/
 │   └── Write-ups de Information Disclosure
-├── broken-authentication/
+├── Broken Authentication/
 │   └── Write-ups de falhas de autenticação
+├── access-control/
+│   └── Write-ups de falhas de controle de acesso
 └── README.md
 ```
 
 ---
 
-## 📝 Estrutura dos Write-ups
+## Estrutura dos Write-ups
 
-Cada write-up segue uma estrutura simples e objetiva:
+Cada write-up segue uma estrutura objetiva, focada em raciocínio técnico e evidências:
 
-```md
+```txt
 # Nome do Lab
 
-## Módulo
-Categoria da vulnerabilidade.
+## Contexto
+Descrição breve do lab e do objetivo.
 
-## Dificuldade
-Nível do laboratório.
+## Análise Inicial
+Primeiros testes, hipóteses e vetores avaliados.
 
-## Objetivo
-O que era necessário fazer para resolver o lab.
+## Exploração
+Passo a passo da exploração que levou à solução.
 
-## Vulnerabilidade
-Tipo da falha, causa técnica e impacto.
+## Por que funcionou
+Explicação técnica da causa da vulnerabilidade.
 
-## Metodologia
-Etapas de análise, enumeração e exploração.
-
-## Payloads Utilizados
-Payloads ou requisições relevantes usados no laboratório.
-
-## Resultado
-Como a vulnerabilidade foi confirmada e o lab resolvido.
+## Impacto
+Consequência da falha em um ambiente real.
 
 ## Mitigação
-Como a falha poderia ser corrigida em um ambiente real.
+Como a falha poderia ser corrigida.
+
+## Aprendizados
+Pontos práticos absorvidos durante o lab.
 ```
+
+Sempre que fizer sentido, os write-ups incluem imagens do Burp Suite, da aplicação vulnerável e da confirmação final do lab resolvido.
 
 ---
 
-## 📌 Categorias
+## Categorias
 
 ### SQL Injection
 
@@ -137,20 +155,25 @@ Write-ups sobre exposição indevida de informações sensíveis, arquivos ocult
 
 Write-ups sobre falhas em autenticação, bypass de controles, enumeração de usuários e problemas em fluxos de login.
 
----
+### Access Control
 
-## 🚀 Próximos Objetivos
-
-* Completar os módulos principais da PortSwigger Web Security Academy
-* Aprofundar em Access Control, SSRF, XXE e File Upload
-* Melhorar a padronização dos write-ups
-* Adicionar mais evidências visuais quando fizer sentido
-* Criar scripts auxiliares para automatizar partes repetitivas dos labs
-* Evoluir a documentação com foco em impacto e mitigação
+Write-ups sobre falhas de autorização, IDOR, acesso indevido a áreas administrativas e controle de privilégios baseado em dados manipuláveis pelo usuário.
 
 ---
 
-## ⚠️ Uso Ético
+## Próximos Objetivos
+
+- Continuar o módulo de Access Control
+- Aprofundar em SSRF, XXE e File Upload
+- Melhorar a padronização dos write-ups
+- Adicionar evidências visuais relevantes em cada lab
+- Documentar tentativas descartadas quando elas fizerem parte do raciocínio
+- Criar scripts auxiliares para automatizar partes repetitivas dos labs
+- Evoluir a documentação com foco em impacto, mitigação e clareza técnica
+
+---
+
+## Uso Ético
 
 Este repositório tem finalidade exclusivamente educacional.
 
@@ -158,11 +181,11 @@ Os laboratórios documentados pertencem à PortSwigger Web Security Academy e fo
 
 ---
 
-## 📫 Contato
+## Contato
 
-**GitHub:** [@Andrey-Soares8](https://github.com/Andrey-Soares8)
+GitHub: [@Andrey-Soares8](https://github.com/Andrey-Soares8)
 
-**LinkedIn:** [andreysoares8](https://www.linkedin.com/in/andreysoares8/)
+LinkedIn: [andreysoares8](https://www.linkedin.com/in/andreysoares8)
 
 ---
 
